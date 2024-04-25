@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Form</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #ceeaf8ba;
+        font-family: "Arial";
+      }
+      .login {
+        width: 500px;
+        height: 450px;
+        margin: auto;
+        overflow: hidden;
+        padding: 80px;
+        background: #f4f7f6;
+        border-radius: 15px;
+        box-shadow: 13px 8px 5px rgba(4, 4, 4, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: #080808;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 50px;
+      }
+      label {
+        color: #070707;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+        border-radius: 15px;
+        background-color: rgb(173, 207, 207);
+        border: none;
+        margin: 4px;
+      }
+      input:hover {
+        background-color: rgb(204, 213, 217);
+      }
+
+      button {
+        background-color: #1c78da;
+        color: #fff;
+        border: none;
+        border-radius: 15px;
+        height: 36px;
+        width: 60px;
+      }
+      button:hover {
+        background-color: #6dacef;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Sign Up</h2>
+    <br />
+    <div class="login">
+      <form method="POST">
+        {% csrf_token %}
+        <label><b>Name </b> </label>
+        <input type="text" name="name" id="name" placeholder="" required />
+        <br /><br />
+        <label><b>Email </b> </label>
+        <input
+          type="Email"
+          name="email"
+          id="email"
+          placeholder="Eg: example@gmail.com"
+          required
+        />
+        <br /><br />
+        <label><b>Password </b> </label>
+        <input
+          type="Password"
+          name="password"
+          id="password"
+          placeholder=""
+          required
+        />
+        <br /><br />
+        <label><b>Gender </b> </label>
+        <input type="text" name="gender" id="gender" placeholder="" required />
+        <br /><br />
+        <label><b>Phone </b> </label>
+        <input type="text" name="phone" id="phone" placeholder="" required />
+        <br /><br />
+        <label><b>State </b> </label>
+        <input type="text" name="state" id="state" placeholder="" required />
+        <br /><br />
+        <button class="submit" type="submit">Signup</button>
+        <br /><br />
+        {% comment %} {{message}} {% endcomment %}
+      </form>
+    </div>
+  </body>
+</html>

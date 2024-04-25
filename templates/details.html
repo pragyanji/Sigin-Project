@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Details</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f0f0f0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    .user-details {
+        margin-top: 20px;
+    }
+    .user-details p {
+        margin: 5px 0;
+    }
+    .user-details label {
+        font-weight: bold;
+    }
+    .logout{
+        float: right;
+
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Your Details</h2>
+
+    <div class="user-details">
+
+        <p><label>Name:</label>{{name}}</p>
+        <p><label>Email:</label> {{email}}</p>
+        <p><label>Phone:</label> {{phone}}</p>
+        <p><label>Gender:</label> {{gender}}</p>
+        <p><label>State:</label> {{state}}</p>
+        
+    </div>
+    <form  method="post">
+        {% csrf_token %}
+    <div class="logout">
+        <button type="submit">Log Out</button>
+    </div>
+    </form>
+</div>
+</body>
+</html>
