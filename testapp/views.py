@@ -4,7 +4,7 @@ from django.forms import model_to_dict
 from django.contrib.auth import logout
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    return render(request,'index.html')
 
 def signin(request):
     if request.method == '':
