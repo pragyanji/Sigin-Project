@@ -20,6 +20,13 @@
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+    .img_container{
+        height: 300;
+        width: 800;
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
     h2 {
         text-align: center;
     }
@@ -32,16 +39,24 @@
     .user-details label {
         font-weight: bold;
     }
-    .logout{
+    button{
         float: right;
+        margin-bottom: 20px;
+        background-color: rgba(107, 131, 130, 0.489);
+        cursor: pointer;
+        border-radius: 10px;
+        padding-inline-end: 15px;
+        text-align: center;
 
     }
 </style>
 </head>
 <body>
-<div class="container">
+    <div class="img_container">
+        <img src="https://source.unsplash.com/800x300/?technology" alt="">
+    </div>
     <h2>Your Details</h2>
-
+<div class="container">
     <div class="user-details">
 
         <p><label>Name:</label>{{name}}</p>

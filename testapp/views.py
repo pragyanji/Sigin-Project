@@ -7,7 +7,7 @@ def home(request):
     return render(request,'index.html')
 
 def signin(request):
-    if request.method == '':
+    if request.method == 'GET':
         Email = request.GET.get('email')
         Password = request.GET.get('password')
         if Email:
