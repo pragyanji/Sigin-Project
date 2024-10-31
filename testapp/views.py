@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from .models import Employees
 from django.forms import model_to_dict
 from django.contrib.auth import logout
+from django.contrib import messages
+
 # Create your views here.
 def home(request):
     return render(request,'index.html')
@@ -28,7 +30,7 @@ def signin(request):
                     'gender':gender,
                     'state':state,
                 }
-                return render(request,'details.html',data)
+                return redirect('details',data)
             else:
                 message ={
                     'message':'Invalid password'
@@ -44,13 +46,16 @@ def signup(request):
         phone = request.POST.get('phone')
         state = request.POST.get('state')
         password = request.POST.get('password')
-        
-        obj = Employees(name = name,email = email,gender = gender,phone = phone,
+        user = Employees.objects.filter(email = email)
+        if user.exists():
+            messages.info(request,'This user already exist')
+            return redirect('signup')
+        else:
+            obj = Employees.objects.create(name = name,email = email,gender = gender,phone = phone,
                   state = state,password = password)
-        obj.save()
-        print('Data submitted successfully')
-        return render(request,'success.html')
-        
+            obj.save()
+            messages.info(request,'Data submitted successfully')
+            return redirect(request,'success')  
     return render(request,'signup.html')
 
 def success(request):
